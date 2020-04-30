@@ -1,0 +1,43 @@
+<h3><a class="btn btn-secondary" href="/house"><i class="fa fa-plus"></i> Create New</a> Liste des Maison</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>description</th>
+            <th>location</th>
+            <th>city</th>
+            <th>image</th>
+            <th>nbpiece</th>
+            <th>nbchambre</th>
+            <th>disponibility</th>
+            <th>component</th>
+            <th>like</th>
+            <th>comment</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.location}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.image}}</td>
+            <td>{{this.nbpiece}}</td>
+            <td>{{this.nbchambre}}</td>
+            <td>{{this.disponibility}}</td>
+            <td>{{this.component}}</td>
+            <td>{{this.like}}</td>
+            <td>{{this.comment}}</td>
+            
+            <td>
+                <a href="/house/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/house/delete/{{this._id}}" onclick="return confirm('etes vous sur de supprime ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

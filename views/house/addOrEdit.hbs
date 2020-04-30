@@ -1,0 +1,63 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/house" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{addHouse._id}}">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="fullName" placeholder="Full Name" value="{{addHouse.fullName}}">
+        <div class="text-danger">
+            {{addHouse.fullNameError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" placeholder="Email" value="{{addHouse.email}}">
+        <div class="text-danger">
+            {{addHouse.emailError}}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>description</label>
+            <input type="text" class="form-control" name="description" placeholder="description" value="{{addHouse.description}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>location</label>
+            <input type="text" class="form-control" name="location" placeholder="location" value="{{addHouse.location}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>city</label>
+            <input type="text" class="form-control" name="city" placeholder="city" value="{{addHouse.city}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>image</label>
+            <input type="text" class="form-control" name="image" placeholder="image" value="{{addHouse.image}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>nbpiece</label>
+            <input type="text" class="form-control" name="nbpiece" placeholder="nbpiece" value="{{addHouse.nbpiece}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>nbchambre</label>
+            <input type="text" class="form-control" name="nbchambre" placeholder="nbchambre" value="{{addHouse.nbchambre}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>disponibility</label>
+            <input type="text" class="form-control" name="disponibility" placeholder="disponibility" value="{{addHouse.disponibility}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>component</label>
+            <input type="text" class="form-control" name="component" placeholder="component" value="{{addHouse.component}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>like</label>
+            <input type="text" class="form-control" name="like" placeholder="like" value="{{addHouse.like}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>comment</label>
+            <input type="text" class="form-control" name="comment" placeholder="comment" value="{{addHouse.comment}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/house/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>
