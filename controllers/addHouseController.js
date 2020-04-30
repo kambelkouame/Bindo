@@ -10,14 +10,16 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if (req.body._id == '')
-        insertRecord(req, res);
-        else
-        updateRecord(req, res);
+    if (req.body._id == ''){
+        insertHouse(req, res);
+    }else{
+        updateHouse(req, res);
+    }
+    
 });
 
 
-function insertRecord(req, res) {
+function insertHouse(req, res) {
     var addHouse = new AddHouse();
     addHouse.fullName = req.body.fullName;
      addHouse.email = req.body.email;
@@ -38,7 +40,7 @@ function insertRecord(req, res) {
                 handleValidationError(err, req.body);
                 res.render("house/addOrEdit", {
                     viewTitle: "Inserer l'employer",
-                    employee: req.body
+                     addHouse: req.body
                 });
             }
             else
@@ -47,7 +49,7 @@ function insertRecord(req, res) {
     });
 }
 
-function updateRecord(req, res) {
+function updateHouse(req, res) {
     AddHouse.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
         if (!err) { res.redirect('house/list'); }
         else {
@@ -55,7 +57,7 @@ function updateRecord(req, res) {
                 handleValidationError(err, req.body);
                 res.render("house/addOrEdit", {
                     viewTitle: 'Modifier la maison',
-                    employee: req.body
+                   addHouse: req.body
                 });
             }
             else
@@ -73,7 +75,7 @@ router.get('/list', (req, res) => {
             });
         }
         else {
-            console.log('Error in retrieving employee list :' + err);
+            console.log('Erreur dans l affichage de la maison:' + err);
         }
     });
 });
@@ -98,8 +100,8 @@ router.get('/:id', (req, res) => {
     AddHouse.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render("house/addOrEdit", {
-                viewTitle: "Update Employee",
-                employee: doc
+                viewTitle: "Update home",
+                 addHouse: doc
             });
         }
     });
